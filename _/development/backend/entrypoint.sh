@@ -2,6 +2,8 @@
 
 source /etc/environment
 
+cd /chat/backend
+
 if [ "$#" -eq  "0" ]
   then
     echo "No argument(s) supplied"
@@ -18,6 +20,5 @@ elif [ "$CMD" == "rootshell" ]; then
     bash
 else
     echo "Running ${*} as '${HOSTUSER}'"
-    #su $HOSTUSER -c "mix ${*}"
-    su $HOSTUSER -c "tail -f /dev/null"
+    su $HOSTUSER -c "/chat/backend/run.sh ${*}"
 fi

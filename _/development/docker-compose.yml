@@ -13,3 +13,13 @@ services:
       - ../../:/chat
     ports:
       - 0.0.0.0:4000:4000
+
+  postgres:
+    build:
+      context: postgres
+    volumes:
+      - ./.data/postgres:/var/lib/postgresql/data
+    env_file:
+      - .envs/postgres.env
+    ports:
+      - 0.0.0.0:5432:5432

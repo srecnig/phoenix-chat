@@ -17,9 +17,10 @@ RUN echo "HOSTUSER='$HOSTUSER'" >> /etc/environment;
 # install dev dependencies
 RUN apt-get update && apt-get install -y inotify-tools
 
-# install hex and phoenix
+# install hex, phoenix and dependencies
 RUN su chat -c "mix local.hex --force --if-missing"
-RUN su chat -c "mix archive.install https://github.com/phoenixframework/archives/raw/master/phx_new.ez"
+RUN su chat -c "mix archive.install --force https://github.com/phoenixframework/archives/raw/master/phx_new.ez"
+RUN su chat -c "mix local.rebar --force"
 
 # basic container setup
 EXPOSE 4000
