@@ -12,7 +12,7 @@ config :backend,
 # Configures the endpoint
 config :backend, BackendWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "ysrGsh5WXRPXyyQhRkfetpBMqz3Yg5mwIJR/q8geDjQU6s/E1KPHueWj3W3PIrK3",
+  secret_key_base: "tnUiwc5FWq7lATOoOnUwRSg/BqP5YH2X9NZXUTLUyaiMxUrC94Yl508tTn8ZaE7D",
   render_errors: [view: BackendWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Backend.PubSub,
            adapter: Phoenix.PubSub.PG2]

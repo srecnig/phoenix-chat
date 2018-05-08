@@ -17,6 +17,10 @@ RUN echo "HOSTUSER='$HOSTUSER'" >> /etc/environment;
 # install dev dependencies
 RUN apt-get update && apt-get install -y inotify-tools
 
+# install node for brunch.io (should be done by a frontend container at some point)
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+RUN apt-get install -y nodejs
+
 # install hex, phoenix and dependencies
 RUN su chat -c "mix local.hex --force --if-missing"
 RUN su chat -c "mix archive.install --force https://github.com/phoenixframework/archives/raw/master/phx_new.ez"
